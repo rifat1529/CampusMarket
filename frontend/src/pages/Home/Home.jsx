@@ -1,7 +1,7 @@
 import Navbar from '../../components/Navbar/Navbar'
 import Hero from '../../components/Hero/Hero'
 import ProductGrid from '../../components/ProductGrid/ProductGrid'
-
+import { Link } from 'react-router-dom'
 function Home() {
   return (
     <>
@@ -25,10 +25,30 @@ function Home() {
           </div>
 
           <div className='university-grid'>
-            <div className='university-card'>Dhaka University</div>
-            <div className='university-card'>BRAC University</div>
-            <div className='university-card'>NSU</div>
-            <div className='university-card'>JU</div>
+            <Link
+  to='/university/dhaka-university'
+  className='university-card'
+>
+  Dhaka University
+</Link>
+            <Link
+  to='/university/brac-university'
+  className='university-card'
+>
+  BRAC University
+</Link>
+            <Link
+  to='/university/nsu'
+  className='university-card'
+>
+  NSU
+</Link>
+            <Link
+  to='/university/ju'
+  className='university-card'
+>
+  JU
+</Link>
           </div>
         </div>
       </section>
