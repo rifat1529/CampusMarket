@@ -1,7 +1,7 @@
 import ProductCard from '../ProductCard/ProductCard'
 import './ProductGrid.css'
 
-const products = [
+const demoProducts = [
   {
     id: 1,
     name: 'Argentina Jersey',
@@ -11,6 +11,7 @@ const products = [
     image:
       'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab'
   },
+
   {
     id: 2,
     name: 'Smart Watch',
@@ -20,6 +21,7 @@ const products = [
     image:
       'https://images.unsplash.com/photo-1523275335684-37898b6baf30'
   },
+
   {
     id: 3,
     name: 'Luxury Perfume',
@@ -29,6 +31,7 @@ const products = [
     image:
       'https://images.unsplash.com/photo-1541643600914-78b084683601'
   },
+
   {
     id: 4,
     name: 'Gaming Headphone',
@@ -41,14 +44,29 @@ const products = [
 ]
 
 function ProductGrid() {
+
+  const uploadedProducts =
+    JSON.parse(
+      localStorage.getItem('products')
+    ) || []
+
+  const allProducts = [
+    ...uploadedProducts,
+    ...demoProducts
+  ]
+
   return (
     <div className='product-grid'>
-      {products.map(product => (
+
+      {allProducts.map(product => (
+
         <ProductCard
           key={product.id}
           product={product}
         />
+
       ))}
+
     </div>
   )
 }

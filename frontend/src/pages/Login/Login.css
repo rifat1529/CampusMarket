@@ -1,27 +1,122 @@
 .auth-page {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed,
+      #9333ea
+    );
+
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-overlay {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  filter: blur(100px);
 }
 
 .auth-form {
   width: 400px;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  padding: 40px;
+  border-radius: 24px;
+
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.2);
+
+  z-index: 10;
 }
 
-.auth-form input {
-  padding: 12px;
+.auth-form h1 {
+  color: white;
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.auth-subtitle {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 15px;
+}
+
+.auth-form input,
+.auth-form select {
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+
+  background: rgba(255,255,255,0.15);
+
+  color: white;
+  font-size: 15px;
+}
+
+.auth-form input::placeholder {
+  color: rgba(255,255,255,0.7);
 }
 
 .auth-form button {
-  padding: 12px;
+  padding: 15px;
   border: none;
-  background: #5b21b6;
+  border-radius: 12px;
+
+  background: white;
+  color: #5b21b6;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.auth-links a {
   color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-btn {
+  background: transparent !important;
+  color: white !important;
+  padding: 0 !important;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) {
+
+  .auth-form {
+    width: 90%;
+    padding: 30px;
+  }
+
 }

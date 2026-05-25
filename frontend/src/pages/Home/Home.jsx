@@ -17,41 +17,44 @@ function Home() {
         <ProductGrid />
       </section>
 
-      <section className='university-section'>
-        <div className='container'>
-          <div className='section-header'>
-            <h2>Explore By University</h2>
-            <p>Trusted student communities</p>
-          </div>
+     <section className='university-section'>
+  <div className='container'>
+    <div className='section-header'>
+      <h2>Explore By Zone</h2>
+      <p>Browse universities by regional zones</p>
+    </div>
 
-          <div className='university-grid'>
-            <Link
-  to='/university/dhaka-university'
-  className='university-card'
->
-  Dhaka University
-</Link>
-            <Link
-  to='/university/brac-university'
-  className='university-card'
->
-  BRAC University
-</Link>
-            <Link
-  to='/university/nsu'
-  className='university-card'
->
-  NSU
-</Link>
-            <Link
-  to='/university/ju'
-  className='university-card'
->
-  JU
-</Link>
-          </div>
-        </div>
-      </section>
+    <div className='university-grid'>
+      <Link
+        to='/zone/dhaka'
+        className='university-card'
+      >
+        Dhaka Zone
+      </Link>
+
+      <Link
+        to='/zone/rajshahi'
+        className='university-card'
+      >
+        Rajshahi Zone
+      </Link>
+
+      <Link
+        to='/zone/rangpur'
+        className='university-card'
+      >
+        Rangpur Zone
+      </Link>
+
+      <Link
+        to='/zone/chittagong'
+        className='university-card'
+      >
+        Chittagong Zone
+      </Link>
+    </div>
+  </div>
+</section>
 
       <section className='recommend-section container'>
         <div className='section-header'>
