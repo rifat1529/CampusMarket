@@ -43,31 +43,112 @@ const demoProducts = [
   }
 ]
 
-function ProductGrid() {
+function ProductGrid({
+  search = '',
+  category = 'All',
+  sort = 'default'
+}) {
 
   const uploadedProducts =
     JSON.parse(
       localStorage.getItem('products')
     ) || []
 
-  const allProducts = [
+  let allProducts = [
     ...uploadedProducts,
     ...demoProducts
   ]
 
+  // SEARCH
+
+  allProducts = allProducts.filter(
+    product =>
+
+      product.name
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        )
+  )
+
+  // CATEGORY FILTER
+
+  if (category !== 'All') {
+
+    allProducts =
+      allProducts.filter(
+        product =>
+          product.category ===
+          category
+      )
+
+  }
+
+  // SORT LOW TO HIGH
+
+  if (sort === 'low-high') {
+
+    allProducts.sort((a, b) =>
+
+      parseInt(
+        a.price.replace(/[^\d]/g, '')
+      ) -
+
+      parseInt(
+        b.price.replace(/[^\d]/g, '')
+      )
+
+    )
+
+  }
+
+  // SORT HIGH TO LOW
+
+  if (sort === 'high-low') {
+
+    allProducts.sort((a, b) =>
+
+      parseInt(
+        b.price.replace(/[^\d]/g, '')
+      ) -
+
+      parseInt(
+        a.price.replace(/[^\d]/g, '')
+      )
+
+    )
+
+  }
+
   return (
-    <div className='product-grid'>
+    <>
+      {allProducts.length > 0 ? (
 
-      {allProducts.map(product => (
+        <div className='product-grid'>
 
-        <ProductCard
-          key={product.id}
-          product={product}
-        />
+          {allProducts.map(product => (
 
-      ))}
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
 
-    </div>
+          ))}
+
+        </div>
+
+      ) : (
+
+        <div className='no-products'>
+
+          <h2>
+            No products found 😢
+          </h2>
+
+        </div>
+
+      )}
+    </>
   )
 }
 
